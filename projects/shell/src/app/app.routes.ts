@@ -11,7 +11,7 @@ export const routes: Routes = [
       loadRemoteModule('products', './Component').then((m) => m.App),
   },
   {
-    path: 'rrhh',
+    path: 'recursos-humanos',
     loadComponent: () =>
       loadRemoteModule('rrhh', './Component').then(m => m.App)
   },
