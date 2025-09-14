@@ -1,23 +1,101 @@
-.main-container {
-  height: 100vh;
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.sidenav {
+html, body, app-root {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Header fijo arriba */
+app-shell-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Footer fijo abajo */
+.app-footer {
+  width: 100%;
+  background-color: #151c29;
+  padding: 8px 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #e5e6e6;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.2);
+}
+
+/* Contenedor principal entre header y footer */
+.main-content {
+  display: flex;
+  margin-top: 64px; /* alto aproximado del header */
+  margin-bottom: 40px; /* alto del footer */
+  height: calc(100vh - 64px - 40px); /* altura visible entre header y footer */
+}
+
+/* Sidebar */
+.custom-sidenav {
   width: 220px;
   background-color: #fff;
   border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
 }
 
+/* Contenido */
+.custom-content {
+  flex: 1;
+  padding: 16px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalmente si hay poco contenido */
+  overflow-y: auto;
+}
+
+/* Sidebar items */
 .sidenav-header {
   font-weight: 600;
-  justify-content: center;
-}
-
-.content {
   padding: 16px;
+  text-align: center;
+  font-size: large;
+  border-bottom: 1px solid #ddd;
 }
 
-a.mat-list-item.active {
-  background-color: rgba(63, 81, 181, 0.1);
-  font-weight: 500;
+.custom-nav-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.custom-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.custom-nav-item:hover {
+  background-color: rgba(63,81,181,0.05);
+}
+
+.custom-nav-item mat-icon {
+  margin-right: 12px;
 }

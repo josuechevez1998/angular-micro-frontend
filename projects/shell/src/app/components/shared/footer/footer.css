@@ -1,0 +1,39 @@
+.app-footer {
+  width: 100%;
+  background-color: #151c29; /* fondo oscuro */
+  padding: 8px 16px; /* altura un poco más cómoda */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #e5e6e6;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.2); /* sutil sombra para separar */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px; /* un poco más amplio */
+}
+
+.footer-content a {
+  text-decoration: none;
+  color: #e5e6e6;
+  font-weight: 500;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.footer-content a:hover {
+  color: #ffffff; /* hover más visible */
+  text-decoration: underline;
+}
+
+.footer-version {
+  font-weight: 400;
+  color: #b0b0b0;
+}

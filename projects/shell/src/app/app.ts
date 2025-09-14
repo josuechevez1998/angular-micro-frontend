@@ -5,22 +5,32 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatRippleModule } from '@angular/material/core';
+import { Footer } from "./components/shared/footer/footer";
 
 @Component({
   selector: 'app-shell-root',
-  imports: [RouterOutlet,
+  imports: [
+    RouterOutlet,
     Header,
+    Footer,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-
-    // Angular core:
+    MatRippleModule,
     RouterLink
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] // ojo, es style**s**Urls
 })
 export class App {
   protected readonly title = signal('shell');
+
+  // Estado para sidebar responsive
+  public isSidebarOpen = signal(false);
+
+  toggleSidebar() {
+    this.isSidebarOpen.set(!this.isSidebarOpen());
+  }
 }

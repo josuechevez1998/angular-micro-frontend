@@ -1,10 +1,19 @@
+/* Header */
 .header-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  padding: 0 16px;
+
+  background-color: #2c3443; /* fondo blanco */
+  color: #ffffff; /* texto negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sutil sombra */
+  border-bottom: 1px solid #ddd;
+
 }
 
+/* Izquierda: logo */
 .header-left {
   display: flex;
   align-items: center;
@@ -15,6 +24,7 @@
   width: auto;
 }
 
+/* Centro: título */
 .header-center {
   flex: 1;
   text-align: center;
@@ -26,7 +36,12 @@
   letter-spacing: 1px;
 }
 
+/* Derecha: usuario */
 .header-right {
   display: flex;
   align-items: center;
+}
+
+.header-right button {
+  color: #ffffff; /* botones y nombre de usuario negro */
 }
