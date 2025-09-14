@@ -20,6 +20,24 @@
         <mat-icon>diversity_3</mat-icon>
         <span>Recursos Humanos</span>
       </a>
+
+      @for (item of menuHeaders; track $index)
+      {
+      <div>
+        <div style="text-align: center; padding: 30px;">
+          <strong>{{ item.nombre }}</strong>
+
+        </div>
+
+        <a class="custom-nav-item" routerLink="/products" routerLinkActive="active" matRipple
+          [matRippleColor]="'rgba(63,81,181,0.1)'">
+          <mat-icon>sell</mat-icon>
+          <span>Productos</span>
+        </a>
+
+      </div>
+      }
+
     </nav>
   </div>
 

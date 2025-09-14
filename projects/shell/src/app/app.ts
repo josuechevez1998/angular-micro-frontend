@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
 import { Footer } from "./components/shared/footer/footer";
+import { SidebarMenu } from './services/sidebar/sidebar-menu';
+
 
 @Component({
   selector: 'app-shell-root',
@@ -25,7 +27,25 @@ import { Footer } from "./components/shared/footer/footer";
   styleUrls: ['./app.css'] // ojo, es style**s**Urls
 })
 export class App {
+
   protected readonly title = signal('shell');
+
+  menuHeaders: MenuHeader[] = [];
+
+  constructor(private sidebarService: SidebarMenu) {
+
+    this.sidebarService.getMenuHeaders()
+      .subscribe({
+        next: (data) => {
+          this.menuHeaders = data
+          console.log(data);
+
+        },
+        error: (err) => console.error(err)
+      });
+
+
+  }
 
   // Estado para sidebar responsive
   public isSidebarOpen = signal(false);
