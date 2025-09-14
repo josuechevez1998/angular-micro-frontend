@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <!-- Izquierda: logo -->
+  <div class="header-left">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+  </div>
+
+  <!-- Centro: nombre del sistema -->
+  <div class="header-center">
+    <span class="app-title">MINEDHUB</span>
+  </div>
+
+  <!-- Derecha: usuario -->
+  <div class="header-right">
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ userName }}</span>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Ver perfil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

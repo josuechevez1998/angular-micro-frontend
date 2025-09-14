@@ -1,0 +1,23 @@
+.main-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
+.sidenav-header {
+  font-weight: 600;
+  justify-content: center;
+}
+
+.content {
+  padding: 16px;
+}
+
+a.mat-list-item.active {
+  background-color: rgba(63, 81, 181, 0.1);
+  font-weight: 500;
+}
