@@ -1,30 +1,29 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Header } from "./header/header";
+import { Footer } from "./components/shared/footer/footer";
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
-import { Footer } from "./components/shared/footer/footer";
 import { SidebarMenu } from './services/sidebar/sidebar-menu';
-
 
 @Component({
   selector: 'app-shell-root',
   imports: [
     RouterOutlet,
+    RouterLink,
     Header,
     Footer,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatRippleModule,
-    RouterLink
+    MatRippleModule
   ],
   templateUrl: './app.html',
-  styleUrls: ['./app.css'] // ojo, es style**s**Urls
+  styleUrl: './app.css' // ✅ singular
 })
 export class App {
 
@@ -32,23 +31,20 @@ export class App {
 
   menuHeaders: MenuHeader[] = [];
 
-  constructor(private sidebarService: SidebarMenu) {
+  // Estado sidebar responsive
+  public isSidebarOpen = signal(false);
 
-    this.sidebarService.getMenuHeaders()
+  constructor(private sidebarService: SidebarMenu) {
+    this.sidebarService
+      .getMenuHeaders()
       .subscribe({
         next: (data) => {
-          this.menuHeaders = data
-          console.log(data);
-
+          this.menuHeaders = data;
+          console.log('Menús cargados:', data);
         },
         error: (err) => console.error(err)
       });
-
-
   }
-
-  // Estado para sidebar responsive
-  public isSidebarOpen = signal(false);
 
   toggleSidebar() {
     this.isSidebarOpen.set(!this.isSidebarOpen());
