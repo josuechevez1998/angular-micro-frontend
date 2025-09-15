@@ -1,0 +1,33 @@
+<div class="custom-sidenav">
+  <div class="sidenav-header">Menú</div>
+  <nav class="custom-nav-list">
+    <a class="custom-nav-item" routerLink="/" routerLinkActive="active" matRipple
+      [matRippleColor]="'rgba(63,81,181,0.1)'">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </a>
+    <a class="custom-nav-item" routerLink="/products" routerLinkActive="active" matRipple
+      [matRippleColor]="'rgba(63,81,181,0.1)'">
+      <mat-icon>sell</mat-icon>
+      <span>Productos</span>
+    </a>
+
+    @for (header of menuHeaders; track $index)
+    {
+    <div>
+      <div style="text-align: center; padding: 30px;">
+        <strong>{{ header.nombre }}</strong>
+      </div>
+    </div>
+    @for (menu of header.sidebar_menu; track $index)
+    {
+    <a class="custom-nav-item" routerLink="{{ menu.dominio }}" routerLinkActive="active" matRipple
+      [matRippleColor]="'rgba(63,81,181,0.1)'">
+      <mat-icon>sell</mat-icon>
+      <span>{{ menu.nombre }}</span>
+    </a>
+    }
+    }
+
+  </nav>
+</div>
