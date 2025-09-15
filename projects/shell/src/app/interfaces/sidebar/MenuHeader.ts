@@ -1,7 +1,7 @@
 interface MenuHeader {
   id: number;
   nombre: string;
-  estaudo: string;
+  estado: string;
   created_at: Date;
   updated_at: Date;
 }
